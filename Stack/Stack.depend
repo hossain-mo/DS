@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1570328940 source:/home/hossain/DS/Stack/main.cpp
+	<iostream>
+	"Stack.h"
+
+1570328927 /home/hossain/DS/Stack/include/Stack.h
+	"StackNode.h"
+	"StackHead.h"
+
+1570328844 /home/hossain/DS/Stack/include/StackNode.h
+
+1570329011 /home/hossain/DS/Stack/include/StackHead.h
+	"StackNode.h"
+
+1570329049 source:/home/hossain/DS/Stack/src/Stack.cpp
+	"Stack.h"
+	<iostream>
+
+1570329190 source:/home/hossain/DS/Stack/src/StackHead.cpp
+	"StackHead.h"
+
+1570329196 source:/home/hossain/DS/Stack/src/StackNode.cpp
+	"StackNode.h"
+
