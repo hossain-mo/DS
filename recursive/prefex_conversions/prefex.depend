@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1577801623 source:/home/hossain/DS/prefex/main.cpp
+	<iostream>
+	<stack>
+
