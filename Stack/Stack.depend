@@ -22,3 +22,46 @@
 1570329196 source:/home/hossain/DS/Stack/src/StackNode.cpp
 	"StackNode.h"
 
+1579795452 source:/home/hossain-hm/Desktop/DS/Stack/src/Stack.cpp
+	"Stack.h"
+	<iostream>
+
+1579795452 /home/hossain-hm/Desktop/DS/Stack/include/Stack.h
+	"StackNode.h"
+	"StackHead.h"
+
+1579795452 /home/hossain-hm/Desktop/DS/Stack/include/StackNode.h
+
+1579795452 /home/hossain-hm/Desktop/DS/Stack/include/StackHead.h
+	"StackNode.h"
+
+1579795452 source:/home/hossain-hm/Desktop/DS/Stack/src/StackHead.cpp
+	"StackHead.h"
+
+1579795452 source:/home/hossain-hm/Desktop/DS/Stack/src/StackNode.cpp
+	"StackNode.h"
+
+1579961602 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/main.cpp
+	<iostream>
+	"Stack.h"
+	"string"
+
+1579795452 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/include/Stack.h
+	"StackNode.h"
+	"StackHead.h"
+
+1579795452 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/include/StackNode.h
+
+1579795452 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/include/StackHead.h
+	"StackNode.h"
+
+1579795452 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/src/Stack.cpp
+	"Stack.h"
+	<iostream>
+
+1579795452 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/src/StackHead.cpp
+	"StackHead.h"
+
+1579795452 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Stack/src/StackNode.cpp
+	"StackNode.h"
+
