@@ -5,9 +5,11 @@
 class Stack
 {
     public:
+     //properties
+        StackHead* stack;
+     //methods
         Stack();
         virtual ~Stack();
-        StackHead* stack;
         bool isEmpty();
         bool isFull();
         bool push(void* itemPointer);
