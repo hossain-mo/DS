@@ -38,11 +38,13 @@
 		<Unit filename="include/StackApplication.h" />
 		<Unit filename="include/StackHead.h" />
 		<Unit filename="include/StackNode.h" />
+		<Unit filename="include/position.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Stack.cpp" />
 		<Unit filename="src/StackApplication.cpp" />
 		<Unit filename="src/StackHead.cpp" />
 		<Unit filename="src/StackNode.cpp" />
+		<Unit filename="src/position.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
