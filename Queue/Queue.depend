@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1580132367 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/main.cpp
+	<iostream>
+	"Queue.h"
+
+1580131958 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/include/Queue.h
+	"QueueHead.h"
+	"QueueNode.h"
+
+1580131901 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/include/QueueHead.h
+	"QueueNode.h"
+
+1580128892 /media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/include/QueueNode.h
+
+1580132415 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/src/Queue.cpp
+	"Queue.h"
+	"QueueNode.h"
+	"QueueHead.h"
+	<iostream>
+
+1580132423 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/src/QueueHead.cpp
+	"QueueHead.h"
+
+1580128902 source:/media/hossain-hm/f20d6c00-b9d7-4e55-85d0-6c809f8d34a4/DS/Queue/src/QueueNode.cpp
+	"QueueNode.h"
+
