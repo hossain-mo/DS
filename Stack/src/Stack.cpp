@@ -1,6 +1,10 @@
 #include "Stack.h"
 #include <iostream>
 using namespace std;
+/*
+pre  : nothing
+post : the stack head is created and stack ready to work
+*/
 Stack::Stack(){
     this->stack   = (StackHead* ) malloc( sizeof(StackHead) );
     if(stack){
@@ -9,9 +13,17 @@ Stack::Stack(){
         stack->top        = NULL;
     }
 }
+/*
+pre  : stack ws created
+post : return true if stack is have not elements
+*/
 bool Stack::isEmpty(){
     return !this->stack->count;
 }
+/*
+pre  : stack ws created
+post : return true if stack is fully
+*/
 bool Stack::isFull(){
     StackNode* node    = (StackNode* ) malloc( sizeof(StackNode) );
     if(node){
@@ -20,6 +32,10 @@ bool Stack::isFull(){
     }
     return true;
 }
+/*
+pre  : stack ws created
+post : add element at the top of the stack
+*/
 bool Stack::push(void* itemPointer){
     StackNode* node    = (StackNode* ) malloc( sizeof(StackNode) );
     if(node){
@@ -32,10 +48,14 @@ bool Stack::push(void* itemPointer){
     }
     return false;
 }
+/*
+pre   : stack was created
+post  : return  the data at the top of the stack and remove it from the stack and null if it empty
+*/
 void* Stack::pop (){
     void* dataPointer  = NULL;
-    StackNode* node    = new StackNode();
     if(!this->isEmpty()){
+        StackNode* node    = new StackNode();
         node              = this->stack->top;
         dataPointer       = node->dataPointer;
         this->stack->top  = node->next;
@@ -44,6 +64,10 @@ void* Stack::pop (){
     }
     return dataPointer;
 }
+/*
+pre  : stack ws created
+post : return the data only from stack if it contain data
+*/
 void* Stack::top(){
     void* dataPointer  = NULL;
     if(!this->isEmpty()){
@@ -51,9 +75,17 @@ void* Stack::top(){
     }
     return dataPointer;
 }
+/*
+pre  : stack ws created
+post : return number of elements contained in stack
+*/
 int Stack::count(){
     return this->stack->count;
 }
+/*
+pre  : stack ws created
+post : free the memory that taken from stack in memory and remove element from stak
+*/
 StackHead* Stack::destroy(){
     if(this->stack){
         StackNode* node    = new StackNode();

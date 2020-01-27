@@ -2,12 +2,20 @@
 #include "QueueNode.h"
 #include "QueueHead.h"
 #include <iostream>
+/*
+pre  : nothing
+post : the queue head is created and queue ready to work
+*/
 Queue::Queue(){
     this->queue = (QueueHead *) malloc (sizeof(QueueHead));
     this->queue->count = 0;
     this->queue->front = NULL;
     this->queue->rear  = NULL;
 }
+/*
+pre  : queue is created
+post : data is in queue
+*/
 bool Queue::enQueue(void* dataPtr){
     QueueNode* node = (QueueNode *) malloc (sizeof (QueueNode) );
     if(node){
@@ -23,6 +31,10 @@ bool Queue::enQueue(void* dataPtr){
     }
     return false;
 }
+/*
+pre  : queue created and not in empty state
+post : data in front of queue is out to user
+*/
 void* Queue::deQueue(){
     void * itemPtr;
     if(!this->isEmpty()){
@@ -39,11 +51,19 @@ void* Queue::deQueue(){
     }
     return itemPtr;
 }
+/*
+pre  : queue is created
+post : if queue is empty it return true else false
+*/
 bool Queue::isEmpty(){
     if(this->queue->count)
         return false;
     return true;
 }
+/*
+pre  : queue is created
+post : if queue is full it return true else false
+*/
 bool Queue::isFull(){
     QueueNode* node = (QueueNode *)  malloc (sizeof(QueueNode));
     if(node){
@@ -52,9 +72,17 @@ bool Queue::isFull(){
     }
     return true;
 }
+/*
+pre  : queue is created
+post : return number of elements in queue
+*/
 int Queue::count(){
     return this->queue->count;
 }
+/*
+pre  : queue is created
+post : if queue is empty it return null else return element in front
+*/
 void* Queue::front(){
     void * itemPtr;
     if(!this->isEmpty()){
@@ -62,6 +90,10 @@ void* Queue::front(){
     }
     return itemPtr;
 }
+/*
+pre  : queue is created
+post : if queue is empty it return null else return element in rear
+*/
 void* Queue::rear(){
     void * itemPtr;
     if(!this->isEmpty()){
@@ -69,6 +101,10 @@ void* Queue::rear(){
     }
     return itemPtr;
 }
+/*
+pre  : queue is created
+post : it free the space that token from queue in memory delete all data
+*/
 QueueHead* Queue::destroy(){
     if(this->queue){
         while(this->queue->front){
