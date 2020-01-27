@@ -10,6 +10,9 @@ void traverse(Queue* queue){
 int main()
 {
    //an Queue application Categorize Data
+   /*
+    we take data from user when number equal -1 it mean its end
+   */
    int num=0;
    int *dataPtr;
    Queue* queue0to9   = new Queue();
