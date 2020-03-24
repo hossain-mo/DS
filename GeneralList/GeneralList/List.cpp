@@ -101,5 +101,54 @@ bool List::full() {
 	}
 	return true;
 }
+//remove value from list if it found
+bool List::remove(void* argu) {
+	ListNode* Ppre;
+	ListNode* Ploc;
+	bool found = this->search(argu,&Ppre,&Ploc);
+	if (found) {
+		if (!Ppre)
+			this->list->front = Ploc->link;
+		else
+			Ppre->link = Ploc->link;
+		if (!Ploc->link)
+			this->list->rear = Ppre;
+		this->list->count--;
+		free(Ploc);
+	}
+	return found;
+}
+//traverse all list from index (fromwhere) til last
+
+void  List::traverse(void (*visit)(void* argu),int fromWhere) {
+	ListNode* node = this->list->front;
+	for (int i = 0; i < fromWhere; i++)
+		node = node->link;
+	while (node) {
+			visit(node->dataPtr);
+			node = node->link;
+	}
+		
+}
+//return the element of thie index if it found else return -1
+void* List::retrieve(int index) {
+	if (index < this->list->count) {
+		ListNode* node = this->list->front;
+		for (int i = 0; i < index; i++)
+			node = node->link;
+		return node->dataPtr;
+	}
+	int* element = (int*)malloc(sizeof(int));
+	*element = -1;
+	return element;
+	
+}
+//search by element if it founf return true
+bool  List::search(void* argu) {
+	ListNode* Ppre;
+	ListNode* Ploc;
+	return this->search(argu,&Ppre,&Ploc);
+}
+
 List::~List() {
 }

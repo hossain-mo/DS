@@ -13,6 +13,9 @@ int compare (void* argu1, void* argu2) {
     else
         return 0;
 }
+void visit(void* argu) {
+    cout << *(int*)argu << "   ";
+}
 int main()
 {
     List* list = new List(compare);
@@ -24,9 +27,21 @@ int main()
         *element = input;
         list->insert(element);
     }
-    cout << *(int*)list->front()<<"   ";
-    cout << *(int*)list->rear() << endl;
-    cout<< list->full();
+    int* element = (int*)malloc(sizeof(int));
+    *element = 2;
+    
+    cout << "front of the list " << *(int*)list->front()  << endl;
+    cout << "rear of the list " << *(int*)list->rear()   << endl;
+    cout << "number of the elements in list " << list->count()         <<endl;
+    cout << "is list is fully  " << list->full()          <<endl;
+    cout << "all elements in the list  from index 1  ";
+    list->traverse(visit,1);
+    cout << endl;
+    cout << "if value 2 in list          " << list->search(element) << endl;
+    cout << "retrieve value 10 fro list  " << * ( int *) list->retrieve(10) << endl;
+    cout << "remove value 2 from list    " << list->remove(element) << endl;
+    list->traverse(visit, 0);
+    cout << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
