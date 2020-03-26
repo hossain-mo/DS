@@ -17,6 +17,7 @@ List::List(int (*compare)(void* argu1, void* argu2)) {
 bool List::search(void* argu, ListNode** Ppre, ListNode** Ploc) {
 	*Ppre = NULL;
 	*Ploc = this->list->front;
+		//argu not negative
 	if (!this->list->count || (this->list->compare)(argu, this->list->front->dataPtr) < 0)
 		return false;
 	if ((this->list->compare)(argu, this->list->rear->dataPtr) > 0 ) {
@@ -55,9 +56,6 @@ bool List::addNode(void* argu,ListNode* Ppre) {
 		if (!Ppre) {
 			newNode->link        = this->list->front;
 			this->list->front    = newNode;
-			if (!this->list->count) {
-				this->list->rear = newNode;
-			}
 		}
 		//adding in middle r at end
 		else {

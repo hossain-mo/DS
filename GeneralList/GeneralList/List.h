@@ -12,13 +12,13 @@ public:
 	bool  empty();
 	bool  full();
 	int   count();
-	void  traverse(void (* visit)(void* argu), int fromWhere);
-	bool  remove(void* argu);
+	virtual void  traverse(void (* visit)(void* argu), int fromWhere);
+	virtual bool  remove(void* argu);
 	void* retrieve(int index);
 	bool  search(void* argu);
-private:
+protected:
 	ListHead* list;
-	bool search(void* argu, ListNode** Ppre, ListNode** Ploc);
-	bool addNode(void* argu, ListNode* Ppre);
+	virtual bool search(void* argu, ListNode** Ppre, ListNode** Ploc);
+	virtual bool addNode(void* argu, ListNode* Ppre);
 };
 
