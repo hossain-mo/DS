@@ -1,9 +1,10 @@
 #pragma once
-#include "ListNode.h"
+#include "SingleListNode.h"
 #include "ListHead.h"
 class List
 {
 public:
+	List();
 	List(int (* compare)(void* argu1, void* argu2));
 	virtual ~List();
 	bool  insert(void* argu);
@@ -18,7 +19,7 @@ public:
 	bool  search(void* argu);
 protected:
 	ListHead* list;
-	virtual bool search(void* argu, ListNode** Ppre, ListNode** Ploc);
-	virtual bool addNode(void* argu, ListNode* Ppre);
+	virtual bool search(void* argu, SingleListNode** Ppre, SingleListNode** Ploc);
+	virtual bool addNode(void* argu, SingleListNode* Ppre);
 };
 

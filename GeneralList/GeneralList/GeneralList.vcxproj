@@ -147,17 +147,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleListNode.cpp" />
+    <ClCompile Include="DoublyLinkedList.cpp" />
     <ClCompile Include="GeneralList.cpp" />
     <ClCompile Include="CircularlyList.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="ListHead.cpp" />
     <ClCompile Include="ListNode.cpp" />
+    <ClCompile Include="SingleListNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CircularlyList.h" />
+    <ClInclude Include="DoubleListNode.h" />
+    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListHead.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="SingleListNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

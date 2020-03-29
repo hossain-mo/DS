@@ -1,5 +1,5 @@
 #include "CircularlyList.h"
-#include "ListNode.h"
+#include "SingleListNode.h"
 #include "ListHead.h"
 #include <iostream>
 using namespace std;
@@ -7,21 +7,21 @@ using namespace std;
 CircularlyList::CircularlyList(int (*compare)(void* argu1, void* argu2)): List::List(compare) {
 	
 }
-bool CircularlyList::search(void* argu, ListNode** Ppre, ListNode** Ploc) {
+bool CircularlyList::search(void* argu, SingleListNode** Ppre, SingleListNode** Ploc) {
 	*Ppre = NULL;
-	*Ploc = this->list->front;
+	*Ploc = (SingleListNode*)this->list->front;
 		//argu not negative
 	if (!this->list->count || (this->list->compare)(argu, this->list->front->dataPtr) < 0)
 		return false;
 	if ((this->list->compare)(argu, this->list->rear->dataPtr) > 0) {
-		*Ppre = this->list->rear;
+		*Ppre = (SingleListNode*)this->list->rear;
 		*Ploc = NULL;
 		return false;
 	}
 	if ((this->list->compare)(argu, this->list->front->dataPtr) == 0) 
 		return true;
 	int result;
-	ListNode* startAddress = *Ploc;
+	SingleListNode* startAddress = *Ploc;
 	*Ppre = *Ploc;
 	*Ploc = (*Ploc)->link;
 	while (result = (this->list->compare)(argu, (*Ploc)->dataPtr) > 0 && *Ploc != startAddress) {
@@ -32,7 +32,7 @@ bool CircularlyList::search(void* argu, ListNode** Ppre, ListNode** Ploc) {
 		return false;
 	return true;
 }
-bool CircularlyList::addNode(void* argu, ListNode* Ppre) {
+bool CircularlyList::addNode(void* argu, SingleListNode* Ppre) {
 
 	bool isInserted = List::addNode(argu, Ppre);
 	if (isInserted)
@@ -50,21 +50,21 @@ bool CircularlyList::remove(void* argu) {
 //traverse all list from index (fromwhere) til last
 
 void  CircularlyList::traverse(void (*visit)(void* argu), int fromWhere) {
-	ListNode* node = this->list->front;
+	SingleListNode* node = (SingleListNode*)this->list->front;
 	for (int i = 0; i < fromWhere ; i++)
 		node = node->link;
-	if (node == this->list->front) {
+	if (node->dataPtr == this->list->front->dataPtr) {
 		visit(node->dataPtr);
 		node = node->link;
 	}
-	while (node && node != this->list->front) {
+	while (node && node->dataPtr != this->list->front->dataPtr) {
 		visit(node->dataPtr);
 		node = node->link;
 	}
 
 }
 void CircularlyList::linkRearToFront() {
-	this->list->rear->link = this->list->front;
+	((SingleListNode*)this->list->rear)->link = (SingleListNode*)this->list->front;
 }
 CircularlyList::~CircularlyList (){
 

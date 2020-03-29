@@ -10,8 +10,8 @@ public:
 	bool  remove(void* argu);
 private:
 	//ListHead* list;
-	bool search(void* argu, ListNode** Ppre, ListNode** Ploc);
-	bool addNode(void* argu, ListNode* Ppre);
+	bool search(void* argu, SingleListNode** Ppre, SingleListNode** Ploc);
+	bool addNode(void* argu, SingleListNode* Ppre);
 	void linkRearToFront();
 };
 

@@ -6,11 +6,11 @@
 #include "CircularlyList.h"
 using namespace std;
 int compare (void* argu1, void* argu2) {
-    if (*(int*)argu1 > * (int*)argu2)
+    if (*(int*)argu1 > * (int*)argu2) 
         return 1;
-    else if (*(int*)argu1 < *(int*)argu2)
+    else if (*(int*)argu1 < *(int*)argu2) 
         return -1;
-    else
+    else 
         return 0;
 }
 void visit(void* argu) {
@@ -18,6 +18,7 @@ void visit(void* argu) {
 }
 int main()
 {
+
     List* listPtr;
     List list(compare);
     listPtr = &list;
