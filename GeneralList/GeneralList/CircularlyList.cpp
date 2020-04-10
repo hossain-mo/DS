@@ -24,9 +24,11 @@ bool CircularlyList::search(void* argu, SingleListNode** Ppre, SingleListNode** 
 	SingleListNode* startAddress = *Ploc;
 	*Ppre = *Ploc;
 	*Ploc = (*Ploc)->link;
-	while (result = (this->list->compare)(argu, (*Ploc)->dataPtr) > 0 && *Ploc != startAddress) {
+    result = (this->list->compare)(argu, (*Ploc)->dataPtr);
+	while (result > 0 && *Ploc != startAddress) {
 		*Ppre = *Ploc;
 		*Ploc = (*Ploc)->link;
+		result = (this->list->compare)(argu, (*Ploc)->dataPtr);
 	}
 	if (result)
 		return false;

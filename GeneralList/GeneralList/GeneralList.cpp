@@ -4,6 +4,7 @@
 #include <iostream>
 #include "List.h"
 #include "CircularlyList.h"
+#include "DoublyLinkedList.h"
 using namespace std;
 int compare (void* argu1, void* argu2) {
     if (*(int*)argu1 > * (int*)argu2) 
@@ -49,6 +50,29 @@ int main()
     CircularlyList circulearList(compare);
     cout << "\ntry circular List\n\n";
     listPtr = &circulearList;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> input;
+        int* element = (int*)malloc(sizeof(int));
+        *element = input;
+        listPtr->insert(element);
+    }
+    cout << "front of the list " << *(int*)listPtr->front() << endl;
+    cout << "rear of the list " << *(int*)listPtr->rear() << endl;
+    cout << "number of the elements in list " << listPtr->count() << endl;
+    cout << "is list is fully  " << listPtr->full() << endl;
+    cout << "all elements in the list  from index 1  :   ";
+    listPtr->traverse(visit, 1);
+    cout << endl;
+    cout << "if value 2 in list          " << listPtr->search(element) << endl;
+    cout << "retrieve value 10 fro list  " << *(int*)listPtr->retrieve(10) << endl;
+    cout << "remove value 2 from list    " << listPtr->remove(element) << endl;
+    listPtr->traverse(visit, 0);
+    cout << endl;
+    //doubly list
+    DoublyLinkedList doublyLinkedList(compare);
+    cout << "\ntry doubly linked List\n\n";
+    listPtr = &doublyLinkedList;
     for (int i = 0; i < 5; i++)
     {
         cin >> input;
