@@ -7,6 +7,6 @@ class BinaryTreeHead :
 public :
 	BinaryTreeNode* root;
 	void (*visit)(void* argu);
-
+	int (*compare)(int* argu1, int* argu2);
 };
 

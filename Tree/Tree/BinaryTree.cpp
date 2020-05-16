@@ -50,3 +50,17 @@ void BinaryTree::breadthFirst() {
 			node = NULL;
 	}
 }
+void BinaryTree::inOrder() {
+	this->inOrder(this->tree->root);
+}
+
+void BinaryTree::preOrder() {
+	this->preOrder(this->tree->root);
+}
+
+void BinaryTree::postOrder() {
+	this->postOrder(this->tree->root);
+}
+BinaryTree::~BinaryTree() {
+
+}

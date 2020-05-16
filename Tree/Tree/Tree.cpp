@@ -18,3 +18,12 @@ int Tree::size() {
 int Tree::height() {
 	return this->tree->height;
 }
+void Tree::increaseSize() {
+	this->tree->size++;
+}
+Tree::~Tree()
+{
+}
+void Tree::increaseHeight() {
+	this->tree->height++;
+}
