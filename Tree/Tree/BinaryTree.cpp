@@ -3,6 +3,7 @@
 #include "BinaryTreeNode.h"
 #include <iostream>
 #include <queue> 
+#include <algorithm>
 BinaryTree::BinaryTree(){
 	this->tree = (BinaryTreeHead*) malloc( sizeof(BinaryTreeHead) );
 	this->tree->root = NULL;
@@ -61,6 +62,17 @@ void BinaryTree::preOrder() {
 void BinaryTree::postOrder() {
 	this->postOrder(this->tree->root);
 }
+
+int BinaryTree::height() {
+	return this->height(this->tree->root);
+}
+int BinaryTree::height(BinaryTreeNode* root) {
+	if (!root)
+		return 0;
+
+	return 1 + std::max(this->height(root->left), this->height(root->right));
+}
+
 BinaryTree::~BinaryTree() {
 
 }

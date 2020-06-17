@@ -12,10 +12,14 @@ public:
 	void postOrder();
 	void breadthFirst();
 	virtual ~BinaryTree();
+	int  height();
 	BinaryTreeHead* tree;
+
 private:
 	void inOrder(BinaryTreeNode* root);
 	void preOrder(BinaryTreeNode* root);
 	void postOrder(BinaryTreeNode* root);
+	int height(BinaryTreeNode* root);
+
 };
 

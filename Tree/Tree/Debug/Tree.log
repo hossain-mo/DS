@@ -1,9 +1,2 @@
 ﻿  BinaryTree.cpp
-  BST.cpp
-  ExpressionTree.cpp
-D:\DS\Tree\Tree\ExpressionTree.cpp(35,20): warning C4018: '<': signed/unsigned mismatch
-  HuffmanTree.cpp
-  Main.cpp
-  Tree.cpp
-  Generating Code...
   Tree.vcxproj -> D:\DS\Tree\Debug\Tree.exe

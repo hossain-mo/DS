@@ -1,5 +1,6 @@
 #include "Tree.h"
 #include "TreeHead.h"
+#include "BinaryTreeNode.h"
 #include <iostream>
 Tree::Tree() {
 	this->tree = (TreeHead *) malloc (sizeof(TreeHead));
@@ -15,9 +16,7 @@ bool Tree::isFull() {
 int Tree::size() {
 	return this->tree->size;
 }
-int Tree::height() {
-	return this->tree->height;
-}
+
 void Tree::increaseSize() {
 	this->tree->size++;
 }

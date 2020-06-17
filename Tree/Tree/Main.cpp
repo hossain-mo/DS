@@ -103,6 +103,9 @@ int main()
     
     cout << "the size after delete\n";
     cout << bst->size() << "\n";
+
+    cout << "the tree hight\n";
+    cout << bst->height() << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
