@@ -27,3 +27,6 @@ Tree::~Tree()
 void Tree::increaseHeight() {
 	this->tree->height++;
 }
+void Tree::decreaseSize() {
+	this->tree->size--;
+}

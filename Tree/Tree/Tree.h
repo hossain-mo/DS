@@ -10,6 +10,7 @@ public:
 	int  height();
 	void increaseHeight();
 	void increaseSize();
+	void decreaseSize();
 	virtual ~Tree();
 	TreeHead* tree;
 };

@@ -150,6 +150,7 @@
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="BinaryTreeHead.cpp" />
     <ClCompile Include="BinaryTreeNode.cpp" />
+    <ClCompile Include="BST.cpp" />
     <ClCompile Include="ExpressionTree.cpp" />
     <ClCompile Include="HuffmanNode.cpp" />
     <ClCompile Include="HuffmanTree.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="BinaryTreeHead.h" />
     <ClInclude Include="BinaryTreeNode.h" />
+    <ClInclude Include="BST.h" />
     <ClInclude Include="ExpressionTree.h" />
     <ClInclude Include="HuffmanNode.h" />
     <ClInclude Include="HuffmanTree.h" />

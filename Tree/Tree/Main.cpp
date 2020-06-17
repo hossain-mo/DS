@@ -8,21 +8,27 @@
 #include "List.h"
 #include <string>
 #include "HuffmanTree.h"
+#include "BST.h"
 using namespace std;
 void visit(void* argu) {
     cout << *(char*)argu << "   ";
 }
 int compare(int* argu1, int* argu2) {
-    if (*argu1 >= *argu2)
+    if (*argu1 > *argu2)
         return 1;
-    else 
+    if (*argu1 < *argu2)
         return -1;
+    else
+        return 0;
 }
 int compareLetter(void* argu1, void* argu2) {
     if (*(char*)argu1 == *(char*)argu2)
         return 0;
     else
         return 1;
+}
+void visitBST(void* argu) {
+    cout << *(int*)argu << "   ";
 }
 int main()
 {
@@ -45,7 +51,7 @@ int main()
     expressionTree->postOrder();
     cout << "\n";*/
     //2)HuffmanTree
-    HuffmanTree* huffmanTree = new HuffmanTree(compare,compareLetter);
+    /*HuffmanTree* huffmanTree = new HuffmanTree(compare,compareLetter);
     int freq;
     char letter=' ';
     while (letter != '?') {
@@ -64,8 +70,39 @@ int main()
         huffmanTree->insert(letterPtr,element);
     }
     huffmanTree->build();
-    huffmanTree->printCode();
+    huffmanTree->printCode();*/
 
+    //2)BST
+    BST* bst = new BST(compare, visitBST);
+    int input;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> input;
+        int* element = (int*)malloc(sizeof(int));
+        *element = input;
+        bst->insert(element);
+    }
+    cout << "the InOrder Traversing\n";
+    bst->inOrder(); cout << "\n";
+    
+    cout << "the largest element\n";
+    cout << *(int*)bst->findLargest() << "\n";
+
+
+    cout << "the smallest element\n";
+    cout<< *(int *) bst->findSmallest()<<"\n";
+    
+    cout << "the size before delete\n";
+    cout << bst->size() << "\n";
+
+    int* element = (int*)malloc(sizeof(int));
+    *element = 5;
+    bst->remove(element);
+    cout << "the InOrder Traversing\n";
+    bst->inOrder(); cout << "\n";
+    
+    cout << "the size after delete\n";
+    cout << bst->size() << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
