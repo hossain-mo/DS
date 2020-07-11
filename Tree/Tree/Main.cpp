@@ -9,6 +9,7 @@
 #include <string>
 #include "HuffmanTree.h"
 #include "BST.h"
+#include "AVL.h"
 using namespace std;
 void visit(void* argu) {
     cout << *(char*)argu << "   ";
@@ -34,7 +35,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     //1)ExpressionTree
-    /*string exp;
+    string exp;
     ExpressionTree *expressionTree = new ExpressionTree(visit);
     cout << "enter the infix expression\n";
     cin >> exp;
@@ -49,9 +50,9 @@ int main()
     cout << "\n";
     cout << "postOrder traversing\n";
     expressionTree->postOrder();
-    cout << "\n";*/
+    cout << "\n";
     //2)HuffmanTree
-    /*HuffmanTree* huffmanTree = new HuffmanTree(compare,compareLetter);
+    HuffmanTree* huffmanTree = new HuffmanTree(compare,compareLetter);
     int freq;
     char letter=' ';
     while (letter != '?') {
@@ -70,9 +71,9 @@ int main()
         huffmanTree->insert(letterPtr,element);
     }
     huffmanTree->build();
-    huffmanTree->printCode();*/
+    huffmanTree->printCode();
 
-    //2)BST
+//    //3)BST
     BST* bst = new BST(compare, visitBST);
     int input;
     for (int i = 0; i < 5; i++)
@@ -106,7 +107,53 @@ int main()
 
     cout << "the tree hight\n";
     cout << bst->height() << "\n";
+
+    //AVL
+    //4)AVL
+    AVL* avl = new AVL(compare, visitBST);
+    int input;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> input;
+        int* element = (int*)malloc(sizeof(int));
+        *element = input;
+        avl->insert(element);
+    }
+    cout << "the InOrder Traversing\n";
+    avl->inOrder(); cout << "\n";
+
+    cout << "the largest element\n";
+    cout << *(int*)avl->findLargest() << "\n";
+
+
+    cout << "the smallest element\n";
+    cout << *(int*)avl->findSmallest() << "\n";
+
+    cout << "the size before delete\n";
+    cout << avl->size() << "\n";
+
+    int* element = (int*)malloc(sizeof(int));
+    *element = 5;
+    avl->remove(element);
+    cout << "the InOrder Traversing\n";
+    avl->inOrder(); cout << "\n";
+
+    cout << "the size after delete\n";
+    cout << avl->size() << "\n";
+
+     element = (int*)malloc(sizeof(int));
+    *element = 2;
+    avl->remove(element);
+    cout << "the InOrder Traversing\n";
+    avl->inOrder(); cout << "\n";
+
+    cout << "the size after delete\n";
+    cout << avl->size() << "\n";
+
+    cout << "the tree hight\n";
+    cout << avl->height() << "\n";
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

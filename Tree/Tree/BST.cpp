@@ -4,7 +4,7 @@ BST::BST(int (*compare)(int* argu1, int* argu2), void(*visit)(void* argu1)): Bin
 	this->tree->compare = compare;
 	this->tree->visit = visit;
 }
-void BST::addNode(BinaryTreeNode*& root, BinaryTreeNode*& node) {
+void  BST::addNode(BinaryTreeNode*& root, BinaryTreeNode*& node) {
 	if (!root) {
 		root = node;
 		return;

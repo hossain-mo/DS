@@ -6,12 +6,12 @@ class BST :
 public:
 	BST(int (*compare)(int* argu1, int* argu2), void(*visit)(void* argu1));
 	void insert(void* dataPtr);
-	void remove(void* dataPtr);
+	virtual void remove(void* dataPtr);
 	void* findLargest();
 	void* findSmallest();
 	virtual ~BST();
-private:
-	void  addNode(BinaryTreeNode*& root, BinaryTreeNode*& node);
+protected:
+	virtual void  addNode(BinaryTreeNode*& root, BinaryTreeNode*& node);
 	//return parent of node
 	BinaryTreeNode* search(BinaryTreeNode*& root, BinaryTreeNode*& node, BinaryTreeNode*& parent, void* dataPtr);
 	void* findLargest(BinaryTreeNode* root);

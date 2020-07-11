@@ -19,6 +19,7 @@ private:
 	void inOrder(BinaryTreeNode* root);
 	void preOrder(BinaryTreeNode* root);
 	void postOrder(BinaryTreeNode* root);
+protected:
 	int height(BinaryTreeNode* root);
 
 };
