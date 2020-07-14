@@ -14,39 +14,41 @@ int compare(void* argu1, void* argu2) {
 int comparePriorityQueue(void* argu1, void* argu2) {
     if (((priorityQueueNode *)argu1)->getPriority() > ((priorityQueueNode*)argu2)->getPriority())
         return 1;
+    if (((priorityQueueNode*)argu1)->getPriority() == ((priorityQueueNode*)argu2)->getPriority())
+        return ((priorityQueueNode*)argu1)->getValue() > ((priorityQueueNode*)argu2)->getValue();
     else 
         return 0;
 }
 int main()
 {
-    //std::cout << "Hello World!\n";
-    //heap *heapObj = new heap(compare,5);
-    //void** arr = (void**)calloc(5, sizeof(void*));
+    std::cout << "Hello World!\n";
+    heap *heapObj = new heap(compare,5);
+    void** arr = (void**)calloc(5, sizeof(void*));
 
-    //int input;
-    //for (int i = 0; i < 5; i++)
-    //{
-    //    cin >> input;
-    //    int* element = (int*)malloc(sizeof(int));
-    //    *element = input;
-    //    heapObj->insert(element);
-    //    arr[i] = element;
-    //}
-    //cout << "internal heap arr\n";
-    ////heapity
-    //heapObj->buildHeap(arr, 5);
-    //for (int i = 0; i < 5; i++)
-    //{
-    //    cout << *(int*)arr[i] << "  ";
-    //}
-    ////first app on heaps selection algorithm
-    //cout << "\nselecting third element :  ";
-    //cout << *(int*)heapObj->selectKElement(3)<<"\n";
-    //cout << "whole heap: \n";
-    //for (int i = 0; i < 5; i++)
-    //{
-    //    cout << *(int*)heapObj->remove() << "  ";
-    //}
+    int input;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> input;
+        int* element = (int*)malloc(sizeof(int));
+        *element = input;
+        heapObj->insert(element);
+        arr[i] = element;
+    }
+    cout << "internal heap arr\n";
+    //heapity
+    heapObj->buildHeap(arr, 5);
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(int*)arr[i] << "  ";
+    }
+    //first app on heaps selection algorithm
+    cout << "\nselecting third element :  ";
+    cout << *(int*)heapObj->selectKElement(3)<<"\n";
+    cout << "whole heap: \n";
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(int*)heapObj->remove() << "  ";
+    }
     //second application on heaps priority queue
     cout << "\npriority queue please enter five five values with priorities\n";
     int value, priority;
