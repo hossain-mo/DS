@@ -11,10 +11,11 @@ private :
 	void exchangeData(int swapIn, int swapOut);
 public :
 	heap(int (*compare) (void* argu1, void* argu2),int size);
-	//also called heapify
 	void insert(void* data);
 	void* remove();
+	//also called heapify
 	void buildHeap(void** arr, int size);
+	void* selectKElement(int k);
 
 	~heap();
 

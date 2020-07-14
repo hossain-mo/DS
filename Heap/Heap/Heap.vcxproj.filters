@@ -21,9 +21,15 @@
     <ClCompile Include="heap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="priorityQueueNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="priorityQueueNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

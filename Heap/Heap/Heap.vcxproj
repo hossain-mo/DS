@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="heap.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="priorityQueueNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heap.h" />
+    <ClInclude Include="priorityQueueNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

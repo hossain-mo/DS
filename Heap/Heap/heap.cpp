@@ -64,6 +64,20 @@ void heap::buildHeap(void** arr, int size) {
 	this->heapArr = tempHeapArr;
 }
 
+void* heap::selectKElement(int k) {
+	if (k - 1 > this->size)
+		return NULL;
+	for (int i = 1; i < k; i++) {
+		this->remove();
+	}
+	void* selectedElement = this->remove();
+	for (int i = 0; i < k ; i++) {
+		this->reheapUp(lastIndex);
+		this->lastIndex++;
+	}
+	return selectedElement;
+}
+
 heap::~heap() {
 
 }
