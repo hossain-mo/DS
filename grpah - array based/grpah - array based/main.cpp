@@ -6,6 +6,9 @@
 #include "Graph.h"
 #include <algorithm>
 using namespace std;
+void visit(void* argu) {
+    cout << *(char*)argu << "   ";
+}
 int main()
 {
     std::cout << "Hello World!\n";
@@ -66,6 +69,12 @@ int main()
     graph->addEdge(fromVertex, toVertex);
 
     graph->displayGraph();
+    cout << endl;
+    //depth- first traverse
+    cout << "depth - first traverse  :"; graph->depthFirstTraversal(visit); cout << endl;
+
+    //vreadth- first traverse
+    cout << "breadth - first traverse  :"; graph->breadthFirstTraversal(visit); cout << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
