@@ -17,7 +17,7 @@ public:
 	void insertVertex(void* dataPtr);
 	void deleteVertex(void* dataPtr);
 	int count();
-	bool insertGrapghArc(void* dataFromPtr, void* dataToPtr);
+	bool insertGrapghArc(void* dataFromPtr, void* dataToPtr, int weight = 1);
 	arc* searchArc(void* dataPtr, arc*& arcLocPtr, bool forInsert);
 	bool deleteGrapghArc(void* dataFromPtr, void* dataToPtr);
 	void displayVerticesDegrees();

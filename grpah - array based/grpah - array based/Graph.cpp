@@ -18,11 +18,11 @@ Graph::Graph(Vertex* vector) {
     }
     }
     
-void Graph::addEdge(void* fromVertex, void* toVertex) {
+void Graph::addEdge(void* fromVertex, void* toVertex, int weight) {
     int fromIndex = this->vector->find(fromVertex);
     int toIndex   = this->vector->find(toVertex);
-    this->adjacencyMatrix[fromIndex][toIndex] = 1;
-    this->adjacencyMatrix[toIndex][fromIndex] = 1;
+    this->adjacencyMatrix[fromIndex][toIndex] = weight;
+    this->adjacencyMatrix[toIndex][fromIndex] = weight;
 }
 void Graph::displayGraph() {
     int i, j;

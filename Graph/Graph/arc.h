@@ -5,6 +5,7 @@ public:
 
 	void* dest;
 	arc* next;
-	arc();
+	int weight;
+	arc(int weight = 1);
 };
 

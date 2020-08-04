@@ -75,8 +75,8 @@ int Graph::count() {
 }
 //pre: grapgh created
 //post: return true if arc is inserted , false if it not created
-bool Graph::insertGrapghArc(void* dataFromPtr, void* dataToPtr) {
-	arc* newArc = new arc();
+bool Graph::insertGrapghArc(void* dataFromPtr, void* dataToPtr, int weight) {
+	arc* newArc = new arc(weight);
 	vertex* fromVertex;
 	this->search(dataFromPtr, fromVertex);
 	if (!fromVertex && this->compare(dataFromPtr, fromVertex->data) != 0)

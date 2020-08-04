@@ -75,6 +75,62 @@ int main()
 
     //vreadth- first traverse
     cout << "breadth - first traverse  :"; graph->breadthFirstTraversal(visit); cout << endl;
+
+    //2)networks (weighted graphs)
+    cout << endl << "network :"<<endl;
+    Graph* network = new Graph(vector);
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'A'; *toVertex = 'B';
+    network->addEdge(fromVertex, toVertex, 523);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'B'; *toVertex = 'C';
+    network->addEdge(fromVertex, toVertex, 200);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'B'; *toVertex = 'D';
+    network->addEdge(fromVertex, toVertex, 548);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'C'; *toVertex = 'A';
+    network->addEdge(fromVertex, toVertex, 345);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'C'; *toVertex = 'D';
+    network->addEdge(fromVertex, toVertex, 360);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'C'; *toVertex = 'E';
+    network->addEdge(fromVertex, toVertex, 467);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'D'; *toVertex = 'E';
+    network->addEdge(fromVertex, toVertex, 245);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'D'; *toVertex = 'F';
+    network->addEdge(fromVertex, toVertex, 320);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'E'; *toVertex = 'F';
+    network->addEdge(fromVertex, toVertex, 555);
+
+    network->displayGraph();
+    cout << endl;
+    //depth- first traverse
+    cout << "depth - first traverse  :"; network->depthFirstTraversal(visit); cout << endl;
+
+    //vreadth- first traverse
+    cout << "breadth - first traverse  :"; network->breadthFirstTraversal(visit); cout << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

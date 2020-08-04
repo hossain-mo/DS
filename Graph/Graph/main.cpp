@@ -87,6 +87,64 @@ int main()
 
     //depth - first
     cout << "depth first search :";  graphPtr->depthFirstTraversal(); cout << "\n";
+    
+
+    //2)networks (weighted graphs)
+    cout << endl<< "network  :"<<endl;
+    Graph* network = new Graph(compare, visit);
+    input;
+    //inset vertics
+    for (int i = 0; i < 6; i++)
+    {
+        cin >> input;
+        int* element = (int*)malloc(sizeof(int));
+        *element = input;
+        network->insertVertex(element);
+    }
+    //count of grapgh
+    cout << network->count() << "\n";
+    element = (int*)malloc(sizeof(int));
+    *element = 2;
+    ////delete vertex
+    //network->deleteVertex(element);
+    //cout << network->count() << "\n";
+    //insert arcs
+    from = (int*)malloc(sizeof(int));
+    *from = 5;
+    to = (int*)malloc(sizeof(int));
+    *to = 10;
+    cout << network->insertGrapghArc(from, to, 523) << "\n";
+
+    *from = 5; *to = 15;
+    cout << network->insertGrapghArc(from, to, 345) << "\n";
+    *from = 10; *to = 15;
+    cout << network->insertGrapghArc(from, to, 200) << "\n";
+    *from = 10; *to = 20;
+    cout << network->insertGrapghArc(from, to, 548) << "\n";
+
+    *from = 15; *to = 20;
+    cout << network->insertGrapghArc(from, to, 360) << "\n";
+    *from = 15; *to = 25;
+    cout << network->insertGrapghArc(from, to, 467) << "\n";
+    *from = 20; *to = 25;
+    cout << network->insertGrapghArc(from, to, 245) << "\n";
+
+    *from = 20; *to = 30;
+    cout << network->insertGrapghArc(from, to, 320) << "\n";
+    *from = 25; *to = 30;
+    cout << network->insertGrapghArc(from, to, 555) << "\n";
+
+    network->displayVerticesDegrees();
+
+    //cout << network->deleteGrapghArc(from, to) << "\n";
+
+    network->displayVerticesDegrees();
+
+    //breadth - first
+    cout << "breadth first search :"; network->breadthFirstTraversal(); cout << "\n";
+
+    //depth - first
+    cout << "depth first search :";  network->depthFirstTraversal(); cout << "\n";
 
 }
 
