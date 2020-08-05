@@ -14,5 +14,6 @@ public:
 	void traverse(void visit(void* argu), std::string traverseType);
 	void breadthFirstTraversal(void visit(void* argu));
 	void depthFirstTraversal(void visit(void* argu));
+	void minimumSpanningTree(void visit(void* argu));
 };
 

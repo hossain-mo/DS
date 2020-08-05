@@ -1,2 +1,3 @@
-﻿  main.cpp
+﻿  Graph.cpp
+D:\DS\grpah - array based\grpah - array based\Graph.cpp(58,27): warning C4018: '<': signed/unsigned mismatch
   grpah - array based.vcxproj -> D:\DS\grpah - array based\Debug\grpah - array based.exe

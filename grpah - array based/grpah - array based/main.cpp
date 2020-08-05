@@ -129,8 +129,11 @@ int main()
     //depth- first traverse
     cout << "depth - first traverse  :"; network->depthFirstTraversal(visit); cout << endl;
 
-    //vreadth- first traverse
+    //breadth- first traverse
     cout << "breadth - first traverse  :"; network->breadthFirstTraversal(visit); cout << endl;
+
+    //minimum spanning tree
+    cout << "minimum spanning tree   :\n"; network->minimumSpanningTree(visit);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

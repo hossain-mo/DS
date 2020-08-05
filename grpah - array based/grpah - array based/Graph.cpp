@@ -73,3 +73,30 @@ void Graph::breadthFirstTraversal(void visit(void* argu)) {
 void Graph::depthFirstTraversal(void visit(void* argu)) {
     this->traverse(visit,"depth");
 }
+void Graph::minimumSpanningTree(void visit(void* argu)) {
+    int numberOfVertices = this->vector->vertexVector.size();
+    std::vector <bool> isVisited(numberOfVertices, false);
+    int edges = 0;
+    isVisited[0] = true;
+    while (edges < numberOfVertices - 1) {
+        int min = INT_MAX;
+        int x = 0, y = 0;
+        for (int i = 0; i < numberOfVertices; i++) {
+            if (isVisited[i]) {
+                for (int j = 0; j < numberOfVertices; j++) {
+                    if ((!isVisited[j] && this->adjacencyMatrix[i][j]) && min > this->adjacencyMatrix[i][j]) {
+                        min = this->adjacencyMatrix[i][j];
+                        x = i;
+                        y = j;
+                    }
+                }
+            }
+        }
+        visit(this->vector->vertexVector[x]);
+        visit(this->vector->vertexVector[y]);
+        std::cout << "  : " << min << endl;
+        isVisited[y] = true;
+        edges++;
+    }
+    return;
+}
