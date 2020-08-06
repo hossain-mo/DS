@@ -56,7 +56,7 @@ void Graph::traverse(void visit(void* argu), string traverseType) {
         isVisited[currentIndex] = true;
         // For every adjacent vertex to the current vertex 
         for (int i = 0; i < this->vector->vertexVector.size(); i++) {
-            if (this->adjacencyMatrix[currentIndex][i] == 1 && (!isVisited[i])) {
+            if (this->adjacencyMatrix[currentIndex][i] && (!isVisited[i])) {
 
                 // Push the adjacent node to the queue 
                 ds.push_back(this->vector->vertexVector[i]);
@@ -100,3 +100,48 @@ void Graph::minimumSpanningTree(void visit(void* argu)) {
     }
     return;
 }
+
+void Graph::shortestPath(void visit(void* argu)) {
+    int numberOfVertices = this->vector->vertexVector.size();
+    std::vector <bool> isVisited(numberOfVertices, false);
+    std::vector <std::vector<int>> paths(numberOfVertices-1, std::vector<int>(3));
+    int edges = 0;
+    isVisited[0] = true;
+    int total = 0;
+    while (edges < numberOfVertices - 1) {
+        int min = INT_MAX;
+        int x = 0, y = 0;
+        for (int i = 0; i < numberOfVertices; i++) {
+            if (isVisited[i]) {
+                for (int j = 0; j < numberOfVertices; j++) {
+                    if ((!isVisited[j] && this->adjacencyMatrix[i][j]) && min > this->adjacencyMatrix[i][j]) {
+                        min = this->adjacencyMatrix[i][j];
+                        
+                        x = i;
+                        y = j;
+                    }
+                }
+            }
+        }
+        total += min;
+        paths[edges][0] = x;
+        paths[edges][1] = y;
+        paths[edges][2] = min;
+        isVisited[y] = true;
+        edges++;
+        //update new weights
+        for (int k = 0; k < numberOfVertices; k++) {
+            if (!isVisited[k] && this->adjacencyMatrix[y][k]) {
+                this->adjacencyMatrix[y][k] += min;
+            }
+        }
+    }
+    
+
+    for (int i = 0; i < numberOfVertices - 1; i++) {
+        visit(this->vector->vertexVector[paths[i][0]]);
+        visit(this->vector->vertexVector[paths[i][1]]); cout << "distance from source  : " << paths[i][2] << endl;
+    }
+    return;
+}
+

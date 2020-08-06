@@ -77,52 +77,89 @@ int main()
     cout << "breadth - first traverse  :"; graph->breadthFirstTraversal(visit); cout << endl;
 
     //2)networks (weighted graphs)
+    vertex = (char*)malloc(sizeof(char));
+    *vertex = 'G';
+    vector->vertexVector.push_back(vertex);
+
+    vertex = (char*)malloc(sizeof(char));
+    *vertex = 'H';
+    vector->vertexVector.push_back(vertex);
+
+    vertex = (char*)malloc(sizeof(char));
+    *vertex = 'K';
+    vector->vertexVector.push_back(vertex);
+
     cout << endl << "network :"<<endl;
     Graph* network = new Graph(vector);
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'A'; *toVertex = 'B';
-    network->addEdge(fromVertex, toVertex, 523);
+    network->addEdge(fromVertex, toVertex, 4);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'A'; *toVertex = 'H';
+    network->addEdge(fromVertex, toVertex, 8);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'B'; *toVertex = 'C';
-    network->addEdge(fromVertex, toVertex, 200);
+    network->addEdge(fromVertex, toVertex, 8);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
-    *fromVertex = 'B'; *toVertex = 'D';
-    network->addEdge(fromVertex, toVertex, 548);
+    *fromVertex = 'B'; *toVertex = 'H';
+    network->addEdge(fromVertex, toVertex, 11);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
-    *fromVertex = 'C'; *toVertex = 'A';
-    network->addEdge(fromVertex, toVertex, 345);
+    *fromVertex = 'C'; *toVertex = 'F';
+    network->addEdge(fromVertex, toVertex, 4);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'C'; *toVertex = 'D';
-    network->addEdge(fromVertex, toVertex, 360);
+    network->addEdge(fromVertex, toVertex, 7);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
-    *fromVertex = 'C'; *toVertex = 'E';
-    network->addEdge(fromVertex, toVertex, 467);
+    *fromVertex = 'C'; *toVertex = 'K';
+    network->addEdge(fromVertex, toVertex, 2);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'D'; *toVertex = 'E';
-    network->addEdge(fromVertex, toVertex, 245);
+    network->addEdge(fromVertex, toVertex, 9);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'D'; *toVertex = 'F';
-    network->addEdge(fromVertex, toVertex, 320);
+    network->addEdge(fromVertex, toVertex, 14);
 
     fromVertex = (char*)malloc(sizeof(char));
     toVertex = (char*)malloc(sizeof(char));
     *fromVertex = 'E'; *toVertex = 'F';
-    network->addEdge(fromVertex, toVertex, 555);
+    network->addEdge(fromVertex, toVertex, 10);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'H'; *toVertex = 'K';
+    network->addEdge(fromVertex, toVertex, 7);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'H'; *toVertex = 'G';
+    network->addEdge(fromVertex, toVertex, 1);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'K'; *toVertex = 'G';
+    network->addEdge(fromVertex, toVertex, 6);
+
+    fromVertex = (char*)malloc(sizeof(char));
+    toVertex = (char*)malloc(sizeof(char));
+    *fromVertex = 'G'; *toVertex = 'F';
+    network->addEdge(fromVertex, toVertex, 2);
 
     network->displayGraph();
     cout << endl;
@@ -132,8 +169,13 @@ int main()
     //breadth- first traverse
     cout << "breadth - first traverse  :"; network->breadthFirstTraversal(visit); cout << endl;
 
-    //minimum spanning tree
-    cout << "minimum spanning tree   :\n"; network->minimumSpanningTree(visit);
+
+     // graph applications 
+    //1) minimum spanning tree
+    cout << "minimum spanning tree   :\n"; network->minimumSpanningTree(visit); cout << endl;
+
+    //2) shortest path
+    cout << "shortest path  :\n"; network->shortestPath(visit);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
