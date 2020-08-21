@@ -16,5 +16,6 @@ public:
 	void depthFirstTraversal(void visit(void* argu));
 	void minimumSpanningTree(void visit(void* argu));
 	void shortestPath(void visit(void* argu));
+	void prime(void visit(void* argu));
 };
 

@@ -145,3 +145,35 @@ void Graph::shortestPath(void visit(void* argu)) {
     return;
 }
 
+void Graph::prime(void visit(void* argu)) {
+    int numberOfVertices = this->vector->vertexVector.size();
+    std::vector <bool> isVisited(numberOfVertices, false);
+    std::vector <int> distances(numberOfVertices, INT_MAX);
+    std::vector <void *> parent(numberOfVertices);
+    int currentVertex = 0;
+    distances [currentVertex] = 0;
+    parent    [currentVertex] = this->vector->vertexVector[0];
+    int weight = 0, dist = 0;
+    while (!isVisited[currentVertex]) {
+        isVisited[currentVertex] = true;
+        for (int i = 0; i < numberOfVertices; i++) {
+            weight = this->adjacencyMatrix[currentVertex][i];
+            if (weight != 0 && i!= currentVertex && distances[i] > weight && !isVisited[i]) {
+                distances[i] = weight;
+                parent[i] = this->vector->vertexVector[currentVertex];
+            }
+        }
+        dist = INT_MAX;
+        for (int i = 0; i < numberOfVertices; i++) {
+            if (dist > distances[i] && !isVisited[i]) {
+                dist = distances[i] ;
+                currentVertex = i;
+            }
+        }
+    }
+    for (int i = 0; i < numberOfVertices; i++) {
+        visit(parent[i]);
+        visit(this->vector->vertexVector[i]);
+        cout << distances[i] << "\n";
+    }
+}

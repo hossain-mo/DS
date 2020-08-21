@@ -173,6 +173,8 @@ int main()
      // graph applications 
     //1) minimum spanning tree
     cout << "minimum spanning tree   :\n"; network->minimumSpanningTree(visit); cout << endl;
+    // by complixty O(n^2)
+    cout << "minimum spanning tree   :\n"; network->prime(visit); cout << endl;
 
     //2) shortest path
     cout << "shortest path  :\n"; network->shortestPath(visit);
