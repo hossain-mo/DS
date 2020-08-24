@@ -3,6 +3,7 @@
 #include <list>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 Graph::Graph(Vertex* vector) {
@@ -23,6 +24,7 @@ void Graph::addEdge(void* fromVertex, void* toVertex, int weight) {
     int toIndex   = this->vector->find(toVertex);
     this->adjacencyMatrix[fromIndex][toIndex] = weight;
     this->adjacencyMatrix[toIndex][fromIndex] = weight;
+    this->edges.push_back(new Edge(fromVertex, toVertex, weight));
 }
 void Graph::displayGraph() {
     int i, j;
@@ -177,3 +179,37 @@ void Graph::prime(void visit(void* argu)) {
         cout << distances[i] << "\n";
     }
 }
+void Graph::kruskal(void visit(void* argu), int compareEdges(const Edge* firstEdge, const Edge* secondEdge)) {
+    std::sort(this->edges.begin(), this->edges.end(), compareEdges);
+    int numOfedges = 1;
+    int numOfVertices = this->vector->vertexVector.size();
+    int flag = 1;
+    std::vector<Edge*> Mst;
+
+    for (auto edge : this->edges) {
+        if (Mst.size() == 0)
+            Mst.push_back(edge);
+        else if (numOfedges < numOfVertices - 1) {
+            for (auto MstEdge : Mst) {
+                if (edge->fromVertex == MstEdge->toVertex ) {
+                    flag = 0;
+                }
+            }
+            if (flag) {
+                Mst.push_back(edge);
+                numOfedges++;
+                flag = 1;
+            }
+            
+        }
+        
+        
+    }
+    for (auto edge : Mst) {
+             visit(edge->fromVertex);
+             visit(edge->toVertex);
+             std::cout << " : " << edge->weight << "\n";
+           
+        }
+}
+

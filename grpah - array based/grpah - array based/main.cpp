@@ -9,6 +9,12 @@ using namespace std;
 void visit(void* argu) {
     cout << *(char*)argu << "   ";
 }
+int compareEdges(const Edge* firstEdge, const Edge* secondEdge) {
+
+    return firstEdge->weight < secondEdge->weight;
+
+}
+
 int main()
 {
     std::cout << "Hello World!\n";
@@ -171,11 +177,12 @@ int main()
 
 
      // graph applications 
-    //1) minimum spanning tree
+    //1) minimum spanning tree using prime
     cout << "minimum spanning tree   :\n"; network->minimumSpanningTree(visit); cout << endl;
     // by complixty O(n^2)
     cout << "minimum spanning tree   :\n"; network->prime(visit); cout << endl;
-
+    // minimum spannig tree using kruskal
+    cout << "minimum spanning tree   :\n"; network->kruskal(visit, compareEdges); cout << endl;
     //2) shortest path
     cout << "shortest path  :\n"; network->shortestPath(visit);
 }
