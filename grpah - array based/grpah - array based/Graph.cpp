@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
+#include "subset.h"
 using namespace std;
 Graph::Graph(Vertex* vector) {
     this->vector = vector;
@@ -24,7 +24,10 @@ void Graph::addEdge(void* fromVertex, void* toVertex, int weight) {
     int toIndex   = this->vector->find(toVertex);
     this->adjacencyMatrix[fromIndex][toIndex] = weight;
     this->adjacencyMatrix[toIndex][fromIndex] = weight;
-    this->edges.push_back(new Edge(fromVertex, toVertex, weight));
+    if(fromIndex <= toIndex)
+        this->edges.push_back(new Edge(fromVertex, toVertex, weight));
+    else
+        this->edges.push_back(new Edge(toVertex, fromVertex, weight));
 }
 void Graph::displayGraph() {
     int i, j;
@@ -181,35 +184,38 @@ void Graph::prime(void visit(void* argu)) {
 }
 void Graph::kruskal(void visit(void* argu), int compareEdges(const Edge* firstEdge, const Edge* secondEdge)) {
     std::sort(this->edges.begin(), this->edges.end(), compareEdges);
-    int numOfedges = 1;
     int numOfVertices = this->vector->vertexVector.size();
-    int flag = 1;
-    std::vector<Edge*> Mst;
+    int graphEdgesSize = this->edges.size();
+    int graphEdges  = 0;
+    int numOfedges = 0;
+    subset* subsets = new subset[(numOfVertices * sizeof(subset))];
 
-    for (auto edge : this->edges) {
-        if (Mst.size() == 0)
-            Mst.push_back(edge);
-        else if (numOfedges < numOfVertices - 1) {
-            for (auto MstEdge : Mst) {
-                if (edge->fromVertex == MstEdge->toVertex ) {
-                    flag = 0;
-                }
-            }
-            if (flag) {
-                Mst.push_back(edge);
-                numOfedges++;
-                flag = 1;
-            }
-            
-        }
-        
-        
+    // Create V subsets with single elements  
+    for (int v = 0; v < numOfVertices; ++v)
+    {
+        subsets[v].parent = v;
+        subsets[v].rank = 0;
     }
-    for (auto edge : Mst) {
-             visit(edge->fromVertex);
-             visit(edge->toVertex);
-             std::cout << " : " << edge->weight << "\n";
-           
+    
+    while (numOfedges < numOfVertices - 1 && graphEdges < graphEdgesSize) {
+        Edge *edge = this->edges[graphEdges];
+        int x = subsets->find(subsets, this->vector->find(edge->fromVertex));
+        int y = subsets->find(subsets, this->vector->find(edge->toVertex));
+        if (x != y)
+        {
+            visit(edge->fromVertex);
+            visit(edge->toVertex);
+            std::cout << "        :"<<edge->weight<<endl;
+            subsets->Union(subsets, x, y);
+            
+            numOfedges++;
         }
+        graphEdges++;
+    }
+    
+        
+        
+    
+    
 }
 
